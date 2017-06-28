@@ -42,7 +42,7 @@
           Photos
         </label>
 
-        <input type="text" id="photos_id" name="photos_id" placeholder="Photos" class="form-control" value="<%= @comment.photos_id %>">
+        <%= select_tag(:photos_id, options_from_collection_for_select(Photo.all, :id, :description, @comment.photos_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for friend_id -->
