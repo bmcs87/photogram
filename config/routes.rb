@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :friends
+  # Routes for the Friend resource:
+  # READ
+  get "/friends", :controller => "friends", :action => "index"
+  get "/friends/:id", :controller => "friends", :action => "show"
+
+
   devise_for :users
   # Routes for the User resource:
   # READ
