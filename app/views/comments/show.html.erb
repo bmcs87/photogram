@@ -60,6 +60,53 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for users_id -->
+      <div class="form-group">
+        <label for="users_id" class="control-label">
+          Users
+        </label>
+
+        <%= select_tag(:users_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for photos_id -->
+      <div class="form-group">
+        <label for="photos_id" class="control-label">
+          Photos
+        </label>
+
+        <%= select_tag(:photos_id, options_from_collection_for_select(Photo.all, :id, :description), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for comments_id -->
+      <div class="form-group">
+        <label for="comments_id" class="control-label">
+          Comments
+        </label>
+
+        <%= select_tag(:comments_id, options_from_collection_for_select(Comment.all, :id, :users_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for friend_id -->
+      <div class="form-group">
+        <label for="friend_id" class="control-label">
+          Friend
+        </label>
+
+        <input type="text" id="friend_id" name="friend_id" placeholder="Friend" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Like
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
