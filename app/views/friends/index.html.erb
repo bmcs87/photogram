@@ -19,7 +19,13 @@
 
       <% @friends.each do |friend| %>
       <tr>
-        <td><%= friend.users.email %></td>
+        <td>
+          <% if friend.users.present? %>
+            <a href="/users/<%= friend.users.id %>">
+              <%= friend.users.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= friend.first_name %></td>
         <td><%= friend.last_name %></td>
         <td><%= friend.email %></td>

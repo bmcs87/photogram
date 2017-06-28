@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Users</dt>
-      <dd><%= @like.users_id %></dd>
+      <dd>
+        <% if @like.users.present? %>
+          <a href="/users/<%= @like.users_id %>">
+            <%= @like.users.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Photos</dt>
-      <dd><%= @like.photos_id %></dd>
+      <dd>
+        <% if @like.photos.present? %>
+          <a href="/photos/<%= @like.photos_id %>">
+            <%= @like.photos.description %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Comments</dt>
-      <dd><%= @like.comments_id %></dd>
+      <dd>
+        <% if @like.comments.present? %>
+          <a href="/comments/<%= @like.comments_id %>">
+            <%= @like.comments.users_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Friend</dt>
       <dd><%= @like.friend_id %></dd>

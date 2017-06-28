@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Users</dt>
-      <dd><%= @friend.users_id %></dd>
+      <dd>
+        <% if @friend.users.present? %>
+          <a href="/users/<%= @friend.users_id %>">
+            <%= @friend.users.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>First name</dt>
       <dd><%= @friend.first_name %></dd>
