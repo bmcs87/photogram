@@ -1,5 +1,7 @@
 ActiveAdmin.register Friend do
 
+ permit_params :users_id, :first_name, :last_name, :email, :password
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
