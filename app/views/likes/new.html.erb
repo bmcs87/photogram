@@ -42,7 +42,7 @@
           Comments
         </label>
 
-        <input type="text" id="comments_id" name="comments_id" placeholder="Comments" class="form-control" value="<%= @like.comments_id %>">
+        <%= select_tag(:comments_id, options_from_collection_for_select(Comment.all, :id, :users_id, @like.comments_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for friend_id -->
